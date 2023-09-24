@@ -1,6 +1,6 @@
 RewriteEngine On
 
-SetEnvIf Host codeigniter-3.test$ CI_ENV=development
+SetEnvIf Host codeigniter-learning.test$ CI_ENV=development
 SetEnvIf Host localhost$ CI_ENV=development
 
 RewriteCond %{REQUEST_FILENAME} !-f
