@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Register extends CI_Controller
+class Register extends MY_Controller
 {
 
     public function __construct()
@@ -47,11 +47,11 @@ class Register extends CI_Controller
             } else {
                 /* Displays an error message */
                 $this->session->set_flashdata('error', 'Something is wrong');
-                $this->load->view('register_form', $data);
+                $this->smarty->display('register.tpl');
             }
         } else {
             /* Render registration form page */
-            $this->load->view('register_form');
+            $this->smarty->display('register.tpl');
         }
     }
 }

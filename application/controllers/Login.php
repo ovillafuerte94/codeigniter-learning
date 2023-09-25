@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Login extends CI_Controller
+class Login extends MY_Controller
 {
 
     public function __construct()
@@ -31,7 +31,7 @@ class Login extends CI_Controller
         $this->form_validation->set_rules('password', 'Password', 'required');
 
         if ($this->form_validation->run() === FALSE) {
-            $this->load->view('login_form');
+            $this->smarty->display('login.tpl');
         } else {
             /* if the login form has been submitted */
             $username = $this->input->post('username');
@@ -48,7 +48,7 @@ class Login extends CI_Controller
             } else {
                 /* Displays an error message if the credentials are incorrect */
                 $this->session->set_flashdata('error', 'Wrong credentials');
-                $this->load->view('login_form');
+                $this->smarty->display('login.tpl');
             }
         }
     }
